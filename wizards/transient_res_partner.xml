@@ -1,0 +1,51 @@
+<odoo>
+<record id="view_partner_wizard_form" model="ir.ui.view">
+    <field name="name">partner.wizard.form</field>
+    <field name="model">partner.transient</field>
+    <field name="arch" type="xml">
+        <form string="Partner Wizard">
+            <group>
+                <field name="name"/>
+                <field name="age"/>
+                <field name="json_record_id" readonly="true"/>
+            </group>
+            <footer>
+                <button string="Apply Changes" type="object" name="save_new_changes" class="btn-primary"/>
+                <button string="Cancel" class="btn-secondary" special="cancel"/>
+            </footer>
+        </form>
+    </field>
+</record>
+
+    <record id="view_partner_wizard_tree" model="ir.ui.view">
+    <field name="name">partner.wizard.tree</field>
+    <field name="model">partner.transient</field>
+    <field name="arch" type="xml">
+        <tree string="Partner Wizard">
+<!--            <group>-->
+                <field name="name"/>
+                <field name="age"/>
+<!--                <field name="dob"/>-->
+<!--            </group>-->
+        </tree>
+    </field>
+</record>
+
+<record id="action_partner_transient_wizard" model="ir.actions.act_window">
+    <field name="name">Partner Wizard</field>
+    <field name="res_model">partner.json.record</field>
+    <field name="view_mode">form</field>
+<!--    <field name="target">new</field>-->
+</record>
+
+
+<record id="action_open_transient" model="ir.actions.act_window">
+    <field name="name">Edit Partner JSON</field>
+    <field name="res_model">partner.transient</field>
+    <field name="view_mode">form</field>
+    <field name="target">new</field>
+    <field name="context">{'default_json_record_id': active_id}</field>
+</record>
+
+
+</odoo>

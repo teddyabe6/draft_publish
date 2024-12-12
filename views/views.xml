@@ -1,0 +1,28 @@
+<odoo>
+  <data>
+      <record id="staging_farmer_profile_tree" model="ir.ui.view">
+        <field name="name">staging.farmer.profile.view.form</field>
+        <field name="model">staging.farmer.profile</field>
+        <field name="arch" type="xml">
+            <tree create="true" delete="true" edit="true" editable="bottom">
+                    <field name="name" />
+                    <field name="partner_data" />
+                    <button string="Edit" type="object" name="action_open_wizard"/>
+                    <button string="Publish" type="object" name="publish_record"/>
+<!--                    <field name="code" />-->
+            </tree>
+        </field>
+    </record>
+    <record id="staging_farmer_profile_action" model="ir.actions.act_window">
+        <field name="name">Staging Farmer Profile</field>
+        <field name="res_model">staging.farmer.profile</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem
+        id="staging_farmer_profile_menu"
+        action="staging_farmer_profile_action"
+        name="Staging FP"
+        sequence="620"
+    />
+  </data>
+</odoo>
